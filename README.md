@@ -80,3 +80,50 @@ Para o **Projeto A4**, o grupo deverá refatorar este monolito em uma **arquitet
      ```
 
 Após essa divisão, seu código estará preparado para escalar, integrando facilmente novas funcionalidades de segurança, como um proxy reverso Nginx, de forma totalmente estruturada e profissional.
+
+
+ 
+
+## Projeto A3: Refatoração para Arquitetura em Múltiplas Camadas
+
+### Objetivo
+
+Refatorar a API originalmente monolítica, separando as responsabilidades do sistema em arquivos distintos, facilitando a organização, manutenção e evolução do código.
+
+### Modificações realizadas
+
+Foram criados e organizados os seguintes arquivos:
+
+1. **App.py:** responsável pela inicialização do FastAPI e pelas rotas da API.
+2. **database.py:** responsável pela conexão com o banco SQLite e criação das tabelas.
+3. **models.py:** responsável pelos modelos de dados utilizando Pydantic.
+4. **.gitignore:** configurado para ignorar arquivos temporários, ambiente virtual e banco de dados local.
+
+Também foram atualizadas as dependências do projeto no arquivo `pyproject.toml`.
+
+### Execução
+
+Para iniciar a aplicação, foi utilizado o comando:
+
+```bash
+uv run uvicorn App:app --reload
+```
+
+A documentação interativa está disponível em:
+
+http://127.0.0.1:8000/docs
+
+### Testes realizados
+
+Foram testadas as operações CRUD pelo Swagger:
+
+1. POST: criação de registros.
+2. GET: listagem e consulta de registros.
+3. PUT: atualização de registros.
+4. DELETE: exclusão de registros.
+
+Todas as operações foram executadas com sucesso.
+
+### Controle de versão
+
+As modificações foram realizadas na branch `multicamadas`, criada a partir de um Fork do repositório original.
